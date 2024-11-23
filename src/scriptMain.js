@@ -3,29 +3,20 @@
 // const img = document.createElement('img');
 // const desc = document.createElement('p');
 
-// URL da API que queremos consumir
-const apiUrl = 'https://backend-ita-jobs-production.up.railway.app/api/enterprises';
 
-// Fazer a requisição GET para a API
-fetch(apiUrl)
-  .then(response => {
-    // Verificar se a resposta foi bem-sucedida
-    if (!response.ok) {
-      throw new Error('Erro na requisição: ' + response.status);
-    }
-    // Converter a resposta para JSON
-    return response.json();
-  })
-  .then(data => {
-    // Trabalhar com os dados da resposta
-    console.log(data);
-  })
-  .catch(error => {
-    // Tratar erros da requisição
-    console.error('Erro na requisição:', error);
-  });
+async function chamaApi(){
+  await fetch('https://backend-ita-jobs-production.up.railway.app/api/enterprises', {method: 'GET', headers: {"Content-Type": "application/json"}, mode: 'no-cors'})
+             .then((response) => response.json())
+             .then((dados) => {return dados})
+             //.catch(err => console.log(err));
+}
 
-
+async function criaCard(){
+  const lista = await chamaApi();
+  //await card();
+  console.log('rodei')
+  console.log(lista)
+}
 
 // async function card(){
 //   await lista.forEach(dado => {
@@ -34,3 +25,5 @@ fetch(apiUrl)
 //     div.appendChild(desc);
 //   });
 // }
+
+criaCard()
