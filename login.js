@@ -17,7 +17,7 @@ entrar.addEventListener('click', () => {
 function verificaLogin(email, senha){
   if(verificaArray(email, senha) === true){
     console.log('OK')
-    window.location.href = "/html/maimPage.html";
+    window.location.href = "maimPage.html";
   }else{
     alert('Email ou senha invalidos!')
   }
