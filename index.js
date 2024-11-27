@@ -26,6 +26,6 @@ function salvar(){
 }
 
 cadastrar.addEventListener('click', () => {
-   criaCadastro(nome.value, email.value, senha.value, idade.value, genero.value)
-   salvar()
+  criaCadastro(nome.value, email.value, senha.value, idade.value, genero.value);
+  salvar();
 })

@@ -4,6 +4,7 @@ const entrar = document.querySelector('.ENTRAR')
 
 
 let pessoa = [];
+var pessoaAtual;
 
 if (localStorage.getItem('pessoas')) {
   pessoa = (JSON.parse(localStorage.getItem('pessoas')));
@@ -26,6 +27,7 @@ function verificaLogin(email, senha){
 function verificaArray(email, senha){
   for(let index in pessoa){
     if(pessoa[index].email == email && pessoa[index].senha == senha){
+      localStorage.pessoaAtual = JSON.stringify(pessoa[index]);
       return true;
     }
   }
